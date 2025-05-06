@@ -32,7 +32,7 @@ $resultOrden->free();
 
 // --- Obtener productos/detalles de la orden --- 
 // Columnas asumidas en detalle_orden_compra: id_orden_compra, producto_nombre, descripcion, cantidad, precio_unitario, iva_producto
-$sqlDetalles = "SELECT * FROM detalle_orden_compra WHERE id_orden_compra = '{$idOrdenEscapado}'";
+$sqlDetalles = "SELECT * FROM detalle_orden_compra WHERE orden_compra_id = '{$idOrdenEscapado}'";
 $resultDetalles = $conn->query($sqlDetalles);
 
 if (!$resultDetalles) {
@@ -92,13 +92,13 @@ if (!empty($detalles)) {
     foreach ($detalles as $detalle) {
         $precioUnitario = floatval($detalle['precio_unitario']);
         $cantidad = floatval($detalle['cantidad']);
-        $ivaPorcentaje = floatval($detalle['iva_producto']);
+        $ivaPorcentaje = floatval($detalle['iva']);
         $subtotalItem = $cantidad * $precioUnitario;
         $totalItem = $subtotalItem * (1 + ($ivaPorcentaje / 100));
         
         $html .= '<tr>
-                    <td>' . htmlspecialchars($detalle['producto_nombre']) . '</td>
-                    <td>' . htmlspecialchars(isset($detalle['descripcion']) ? $detalle['descripcion'] : '') . '</td>
+                    <td>' . htmlspecialchars($detalle['descripcion']) . '</td>
+                    <td>' . htmlspecialchars(isset($detalle['descripcion_larga']) ? $detalle['descripcion_larga'] : '') . '</td>
                     <td class="text-right">' . htmlspecialchars(number_format($cantidad, 2, ',', '.')) . '</td>
                     <td class="text-right">' . htmlspecialchars(number_format($precioUnitario, 2, ',', '.')) . '</td>
                     <td class="text-right">' . htmlspecialchars(number_format($ivaPorcentaje, 0, ',', '.')) . '%</td>
