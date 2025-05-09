@@ -1,7 +1,6 @@
 <?php 
-    session_start(); 
     require 'setting/configBD.php'; // Conexión a la BD
-    require 'assets/funciones.php'; // Funciones personalizadas
+    require 'functions/funciones.php'; // Funciones personalizadas
 
     // Obtener el siguiente número de orden para mostrar
     $siguienteNumeroOrden = obtenerSiguienteNumeroCompra($conn);
@@ -11,11 +10,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orden de Compra Dinámica</title>
+    <title>Sistema de Gestión de Órdenes de Compra con PHP y MySQL</title>
     <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="assets/home.css">
+    <link rel="stylesheet" href="assets/css/home.css">
 </head>
 <body>
     <div class="container">
@@ -84,19 +83,8 @@
         <i class="bi bi-list-ul"></i>
     </a>
 
-    <!-- Font Awesome para el icono del botón (opcional pero mejora la UI) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
-    <!-- jQuery y Bootstrap Bundle (incluye Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="assets/home.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="assets/js/home.js"></script>
 </body>
 </html>
-<?php
-    // Es buena práctica cerrar la conexión si ya no se va a usar en esta página.
-    // Sin embargo, si tienes más lógica PHP abajo que la necesite, muévela al final.
-    if (isset($conn)) {
-        $conn->close();
-    }
-?>

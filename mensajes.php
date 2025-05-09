@@ -1,4 +1,7 @@
-<?php if (isset($_SESSION['mensaje_exito'])): ?>
+<?php
+session_start(); 
+
+if (isset($_SESSION['mensaje_exito'])): ?>
 <div class="alert alert-success alert-dismissible fade show text-cenetr fw-bold" role="alert">
     <?php echo $_SESSION['mensaje_exito']; ?>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

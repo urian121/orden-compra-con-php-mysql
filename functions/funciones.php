@@ -1,7 +1,7 @@
 <?php
-ini_set('display_errors', 1);
+/*ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL);*/
 
 function obtenerSiguienteNumeroCompra($conn) {
     $sql = "SELECT MAX(numero_de_compra) as ultimo_numero FROM ordenes_compra";
@@ -28,18 +28,27 @@ function obtenerSiguienteNumeroCompra($conn) {
  * Obtiene todas las órdenes de compra de la base de datos.
  */
 function obtenerTodasLasOrdenes($conn) {
-    $ordenes = [];
     $sql = "SELECT id, numero_de_compra, fecha_creacion, estado, subtotal, iva_total, total_pagar 
             FROM ordenes_compra 
             ORDER BY fecha_creacion DESC";
-
     $result = $conn->query($sql);
-
-    if ($result && $result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $ordenes[] = $row;
-        }
-    }
-    return $ordenes;
+    return $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
 }
+
+
+/**
+ * Obtiene los detalles de una orden de compra específica.
+ */
+
+ function obtenerDetallesOrden($conn, $idOrden) {
+    $id = (int) $idOrden;
+
+    $cabecera = $conn->query("SELECT * FROM ordenes_compra WHERE id = $id")->fetch_assoc();
+    if (!$cabecera) return null;
+
+    $detalles = $conn->query("SELECT * FROM detalle_orden_compra WHERE orden_compra_id = $id")->fetch_all(MYSQLI_ASSOC);
+
+    return ['cabecera' => $cabecera, 'detalles' => $detalles];
+}
+
 ?>

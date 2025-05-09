@@ -1,4 +1,4 @@
-# Sistema de Gestión de Órdenes de Compra
+# Sistema de Gestión de Órdenes de Compra con PHP y MySQL
 
 Este proyecto es una aplicación web desarrollada en PHP y MySQL para crear, gestionar y visualizar órdenes de compra. Permite a los usuarios añadir productos, calcular totales con IVA y generar un PDF de la orden de compra.
 
@@ -102,3 +102,13 @@ Este proyecto es una aplicación web desarrollada en PHP y MySQL para crear, ges
 ## Contribuciones
 
 Las contribuciones son bienvenidas. Si deseas mejorar este proyecto, por favor considera hacer un fork del repositorio y enviar un pull request.
+
+
+### Expresiones de Gratitud 🎁
+
+    ¡Comparte este emocionante proyecto con los demás! 📢
+    Apóyanos con una cerveza 🍺 o un reconfortante café ☕
+    Contribuye a través de PayPal: iamdeveloper86@gmail.com
+    Expresa tus agradecimientos en público 🤓 ¡Te lo agradeceremos enormemente!
+
+## ¡No dejes pasar la oportunidad de SUSCRIBIRTE! 👍
