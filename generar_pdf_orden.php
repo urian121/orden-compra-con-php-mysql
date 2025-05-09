@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'configBD.php';
+require 'setting/configBD.php';
 
 // Ruta a autoload.php de DOMPDF. Ajusta si es diferente (ej. 'vendor/autoload.php')
 require 'dompdf/vendor/autoload.php';

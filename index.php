@@ -1,6 +1,6 @@
 <?php 
     session_start(); 
-    require 'configBD.php'; // Conexión a la BD
+    require 'setting/configBD.php'; // Conexión a la BD
     require 'assets/funciones.php'; // Funciones personalizadas
 
     // Obtener el siguiente número de orden para mostrar
@@ -12,22 +12,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orden de Compra Dinámica</title>
+    <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/home.css">
 </head>
 <body>
     <div class="container">
-       <?php include('mensajes.php'); ?>
-
-        <div class="d-flex justify-content-center align-items-center mb-5">
-            <h1 class="mb-0 fw-bold">Crear Orden de Compra</h1>
+        <div class="row justify-content-center align-items-center mb-5">
+            <div class="col-auto d-flex align-items-center">
+            <img src="assets/img/logo.png" alt="Logo" class="img-fluid" style="max-width: 70px;">
+            </div>
+            <div class="col text-center">
+            <h1 class="mb-0 font-weight-bold mt-2">Crear Orden de Compra</h1>
+            </div>
         </div>
+        <?php include('mensajes.php'); ?>
 
         <div class="d-flex justify-content-end align-items-center  mb-5">
             <div class="text-right">
-                <span class="text-muted">N° Orden:</span>
-                <h4 class="mb-0"><strong><?php echo htmlspecialchars($siguienteNumeroOrden); ?></strong></h4>
+                <h4 class="mb-0">
+                    <span class="text-muted">N° Orden:</span>
+                    <strong><?php echo htmlspecialchars($siguienteNumeroOrden); ?></strong>
+                </h4>
             </div>
         </div>
 

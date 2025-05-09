@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'configBD.php'; // Conexión a la BD
+require 'setting/configBD.php'; // Conexión a la BD
 require 'assets/funciones.php'; // Funciones personalizadas
 
 // Obtener todas las órdenes
@@ -12,15 +12,27 @@ $listaDeOrdenes = obtenerTodasLasOrdenes($conn);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Órdenes de Compra</title>
+    <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/home.css">
 </head>
 <body>
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center mb-5">
-            <h1 class="mb-0 fw-bold">Listado de Órdenes de Compra</h1>
-            <a href="index.php" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Nueva Orden</a>
+        <div class="row mb-5">
+            <div class="col-12 d-flex justify-content-between align-items-center">
+            <div class="mr-3">
+                <a href="javascript:history.back()" class="btn btn-outline-secondary" title="Volver atrás">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+            </div>
+            <div class="flex-grow-1 text-center">
+                <h1 class="mb-0 font-weight-bold">Listado de Órdenes de Compra</h1>
+            </div>
+            <div class="ml-3">
+                <a href="index.php" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Nueva Orden</a>
+            </div>
+            </div>
         </div>
 
         <?php include('mensajes.php'); ?>
